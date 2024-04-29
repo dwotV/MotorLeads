@@ -1,6 +1,6 @@
 function getMakeID() {
     let make_value = document.options_motorleads.makes.value;
-    if (make_value !== "null") {
+    if (make_value !== "") {
         document.options_motorleads.model.disabled = false;
         updateURL();
     }
@@ -13,7 +13,7 @@ function getMakeID() {
 
 function getModelID() {
     let model_value = document.options_motorleads.model.value;
-    if (model_value !== "null") {
+    if (model_value !== "") {
         document.options_motorleads.year.disabled = false;
         updateURL();
     }
@@ -25,7 +25,7 @@ function getModelID() {
 
 function getYearID() {
     let year_value = document.options_motorleads.year.value;
-    if (year_value !== "null") {
+    if (year_value !== "") {
         document.options_motorleads.version.disabled = false;
         updateURL();
     } else {
@@ -35,7 +35,7 @@ function getYearID() {
 
 function getVersionID() {
     let version_value = document.options_motorleads.version.value;
-    if (version_value !== "null") {
+    if (version_value !== "") {
         document.options_motorleads.color.disabled = false;
         updateURL();
     }
@@ -52,13 +52,13 @@ function updateURL() {
 
     let url = "http://localhost/RETO/form.php?make_id=" + make_value;
 
-    if (model_value !== "null") {
+    if (model_value !== "") {
         url += "&model_id=" + model_value;
     }
-    if (year_value !== "null") {
+    if (year_value !== "") {
         url += "&year_id=" + year_value;
     }
-    if (version_value !== "null") {
+    if (version_value !== "") {
         url += "&version_id=" + version_value;
     }
 
