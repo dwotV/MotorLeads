@@ -121,7 +121,7 @@ echo "<!DOCTYPE html>
     </head>
 
     <body>
-        <form name = 'options_motorleads'>
+        <form name = 'options_motorleads' method = 'get' action = 'https://localhost/MotorLeads-main/prueba.php'>
             <table class='navbar' width='100%'>
                 <tr>
                     <td>
@@ -137,7 +137,7 @@ echo "<!DOCTYPE html>
                         <table class='user'>
                             <tr>
                                 <td>
-                                    <img src='https://localhost/RETO/imagenes/user.png' class='userimg'>
+                                    <img src='https://localhost/MotorLeads-main/imagenes/user.png' class='userimg'>
                                 </td>
                                 <td>
                                     <p>Daniel</p>
@@ -196,7 +196,7 @@ echo "<!DOCTYPE html>
                             <tr>
                                 <td width='300' height='100'>
                                     <p>Selecciona un Color</p>
-                                    <select name = 'color' disabled>
+                                    <select name = 'color'>
                                         <option value=''>Selecciona</option>
                                         <option value='red'>Rojo</option>
                                         <option value='blue'>Azul</option>
