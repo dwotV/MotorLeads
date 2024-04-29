@@ -88,6 +88,9 @@ function restoreSelectedValues() {
     if (document.options_motorleads.year.value !== "null") {
         document.options_motorleads.version.disabled = false;
     }
+    if (document.options_motorleads.version.value !== "null") {
+        document.options_motorleads.color.disabled = false;
+    }
 }
 
 window.onload = function() {
