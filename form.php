@@ -155,7 +155,7 @@ echo "<!DOCTYPE html>
                                 <td width='300' height='100'>
                                     <p>Selecciona una Marca</p>
                                     <select name = makes onchange = 'getMakeID()'>
-                                        <option value = 'null'>Selecciona</option>
+                                        <option value = ''>Selecciona</option>
                                         ".getMakes()."
                                     </select>
                                 </td>
@@ -164,7 +164,7 @@ echo "<!DOCTYPE html>
                                 <td width='300' height='100'>
                                     <p>Selecciona un Modelo</p>
                                     <select name = 'model' onchange = 'getModelID()' disabled>
-                                        <option class = ''>Selecciona</option>
+                                        <option value = ''>Selecciona</option>
                                         ".getModels()."
                                     </select>
                                 </td>
@@ -182,7 +182,7 @@ echo "<!DOCTYPE html>
                             <td width='300' height='100'>
                                 <p>Selecciona una Versión</p>
                                 <select name = 'version' onchange = 'getVersionID()' disabled>
-                                    <option value=''>Selecciona</option>
+                                    <option value = ''>Selecciona</option>
                                     ".getVersion()."
                                 </select>
                             </td>
