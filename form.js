@@ -74,21 +74,21 @@ function saveSelectedValues() {
 }
 
 function restoreSelectedValues() {
-    document.options_motorleads.makes.value = localStorage.getItem('make_value') || "null";
-    document.options_motorleads.model.value = localStorage.getItem('model_value') || "null";
-    document.options_motorleads.year.value = localStorage.getItem('year_value') || "null";
-    document.options_motorleads.version.value = localStorage.getItem('version_value') || "null";
+    document.options_motorleads.makes.value = localStorage.getItem('make_value') || "";
+    document.options_motorleads.model.value = localStorage.getItem('model_value') || "";
+    document.options_motorleads.year.value = localStorage.getItem('year_value') || "";
+    document.options_motorleads.version.value = localStorage.getItem('version_value') || "";
     
-    if (document.options_motorleads.makes.value !== "null") {
+    if (document.options_motorleads.makes.value !== "") {
         document.options_motorleads.model.disabled = false;
     }
-    if (document.options_motorleads.model.value !== "null") {
+    if (document.options_motorleads.model.value !== "") {
         document.options_motorleads.year.disabled = false;
     }
-    if (document.options_motorleads.year.value !== "null") {
+    if (document.options_motorleads.year.value !== "") {
         document.options_motorleads.version.disabled = false;
     }
-    if (document.options_motorleads.version.value !== "null") {
+    if (document.options_motorleads.version.value !== "") {
         document.options_motorleads.color.disabled = false;
     }
 }
