@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MotorLeads</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="results.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <script src="pruebajs4.js"></script>
+    
+</head>
+
+<body>
+    <table class="navbar" width="100%">
+        <tr>
+            <td>
+                <table class="logo">
+                    <tr>
+                        <td>
+                            <h2>MotorLeads</h2>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table class="user">
+                    <tr>
+                        <td style="padding-right: 10px;"><img id="userPhoto"></td>
+                        <td><p><span id="userName"></span></p></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <div id="vehicle">
+        <br>
+        <br>
+        
+        <table class="vehicle-table" width="30%">
+            <tr>
+                <td class="imp" rowspan="2"><img id="makesLogo"></td>
+                <td class="imp combined-cell" colspan="2">
+                    <span id="makes"></span>
+                    <span class="cell-space"></span> 
+                    <span id="model"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="char" colspan="3"> 
+                    <span id="year"></span><span class="middot-space"></span>&middot;<span class="middot-space"></span><span id="color"></span><span class="middot-space"></span>&middot;<span class="middot-space"></span><span id="version"></span><span class="middot-space"></span>&middot;<span class="middot-space"></span><span id="mileage"></span>
+                </td>
+            </tr>
+        </table>    
+    </div>
+
+    <div id="prices">
+        <br>
+        <br>
+        <table class="prices-table" width="50%">
+            <tr>
+                <td>Valor a la <b>Venta</b><span class="dot1"></span></td>
+                <td>Valor <b>Medio</b><span class="dot2"></span></td>
+                <td>Valor a la <b>Compra</b><span class="dot3"></span></td>
+            </tr>
+            <tr>
+                <td style="height: 70px"><span class="imp" id="sales"></span></td>
+                <td style="height: 70px"><span class="imp" id="half"></span></td>
+                <td style="height: 70px"><span class="imp" id="purch"></span></td>
+            </tr>
+            <tr>
+                <td>Cambio de 1 Año</td>
+                <td>Cambio de 1 Año</td>
+                <td>Cambio de 1 Año</td>
+            </tr>
+            <tr>
+                <td><span class="char" id="chSales"></span></td>
+                <td><span class="char" id="chHalf"></span></td>
+                <td><span class="char" id="chPurch"></span></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="button-container"> <!-- Esta celda abarca todas las columnas -->
+                    <br>
+                    <button class="button">3M</button>
+                    <button class="button">6M</button>
+                    <button class="button">1A</button>
+                    <button class="button">2A</button>
+                    <button class="button">Máx</button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+</html>
