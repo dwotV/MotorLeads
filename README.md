@@ -43,6 +43,6 @@ rename MotorLeads MotorLeads-main
 ```
 
 2. Entre al panel de control de XAMPP y e inicie Apache y MySQL.
-4. Abra el siguiente link en el navegador que prefiera [localhost/MotorLeads-main/login.html](localhost/MotorLeads-main/login.html).
+4. Abra el siguiente link en el navegador que prefiera [http://localhost/MotorLeads-main/login.html](http://localhost/MotorLeads-main/login.html).
 
 
