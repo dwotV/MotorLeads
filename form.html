@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MotorLeads</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="formStyles.css">
+        <script src="form.js" type="text/JavaScript"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
+    </head>
+
+    <body>
+    <form id= "datos" name="datos" method = 'get' onsubmit = "return validateForm()">
+        <table class="navbar" width="100%">
+            <tr>
+                <td>
+                    <table class="logo">
+                        <tr>
+                            <td>
+                                <h2>MotorLeads</h2>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="user">
+                        <tr>
+                            <td>
+                                <img src="https://localhost/MotorLeads/imagenes/user.png" class="userimg">
+                            </td>
+                            <td>
+                                <p>Daniel</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table class="form" width="70%">
+            <tr>
+                <td>
+                    <table class="selectores">
+                        <tr>
+                            <td width="300" height="100">
+                                <p>Selecciona una Marca</p>
+                                <select name="marcas" class="select" id="select_marcas" onclick="campos_normales()">
+                                    <option value=""></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="300" height="100">
+                                <p>Selecciona un Modelo</p>
+                                <select name="modelos" class="select" disabled>
+                                    <option value=""></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="300" height="100">
+                                <p>Selecciona un Año</p>
+                                <select name="anios" class="select" disabled>
+                                    <option value=""></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="300" height="100">
+                                <p>Selecciona una Versión</p>
+                                <select name="version" class="select" disabled>
+                                    <option value=""></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="300" height="100">
+                                <p>Selecciona un Kilometraje</p>
+                                <input type="number" name="kilometraje" class="input-number" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="300" height="100">
+                                <p>Selecciona un Color</p>
+                                <select name="color" class="select" disabled>
+                                    <option value=""></option>
+                                    <option value="negro">Negro</option>
+                                    <option value="plateado">Plateado</option>
+                                    <option value="blanco">Blanco</option>
+                                    <option value="rojo">Rojo</option>
+                                    <option value="azul">Azul</option>
+                                    <option value="amarillo">Amarillo</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="buscar" type="submit" value="Buscar" disable>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+    </body>
+</html>
