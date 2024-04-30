@@ -49,72 +49,229 @@
         $salePrices = array_slice($salePrices, -$months);
         $mediumPrices = array_slice($mediumPrices, -$months);
     }
+    if(isset($_GET['kilometraje']) && isset($_GET['color'])) {
+        $km = $_GET['kilometraje']." km";
+        $color = ucfirst($_GET['color']);
+
+    }
+   
+    // if(isset($_POST['hn'])) {
+    //     $hn = $_POST['hn'];
+    //     $fsale = '$' . number_format($historic[$hn]['sale_price']);
+    //     $fmedium = '$' . number_format($historic[$hn]['medium_price']);
+    //     $fpurch = '$' . number_format($historic[$hn]['purchase_price']);
+    // }
+
+// $fsale = '$' . number_format($historic[1]['sale_price']);
+// $fmedium = '$' . number_format($historic[1]['medium_price']);
+// $fpurch = '$' . number_format($historic[1]['purchase_price']);
+$hn = isset($_POST['hn']) ? $_POST['hn'] : 1;
+
+// Calcular los nuevos valores de fsale, fmedium y fpurch
+if(isset($historic[$hn])) {
+    // Si 'hn' está definido y el índice es válido en $historic, calcular los nuevos valores
+    $fsale = '$' . number_format($historic[$hn]['sale_price']);
+    $fmedium = '$' . number_format($historic[$hn]['medium_price']);
+    $fpurch = '$' . number_format($historic[$hn]['purchase_price']);
+} else {
+    // Si 'hn' no está definido o el índice no es válido, asignar valores predeterminados
+    $fsale = '$0';
+    $fmedium = '$0';
+    $fpurch = '$0';
+}
+
+$vsales = isset($version['sale_price_variation']) ? '$'.number_format($version['sale_price_variation']).'('.$version['sale_price_percentage_variation'].'%)' : '';
+$vpurch = isset($version['purchase_price_variation']) ? '$'.number_format($version['purchase_price_variation']).'('.$version['purchase_price_percentage_variation'].'%)' : '';
+$vhalf = isset($version['medium_price_variation']) ? '$'.number_format($version['medium_price_variation']).'('.$version['medium_price_percentage_variation'].'%)' : '';
+
 
     echo "
     <!DOCTYPE html>
     <html>
     <head> 
-        <title>MotorLeads Graph</title>
+        <title>MotorLeads</title>
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>Gráfica</title>
+        <link rel='stylesheet' type='text/css' href='results.css'>
+        <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap' rel='stylesheet'/>
+
+        <title>Detalle del vehìculo</title>
+        <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 
         <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
         <script src='grafica.js'></script>
         <style>
             canvas {
-                max-width: 75%;
-                max-height: 80%;
+                width: 400px; /* Ancho deseado */
+                height: 300px; /* Alto deseado */
             }
         </style>
     </head>
     <body>
-        <h1>" . (isset($version['make']) ? $version['make'] : '') . " " . (isset($version['model']) ? $version['model'] : '') . "</h1>
-        <div>
-            <form method='post' action=''>
-                <button name='three'>3 meses</button>
-                <button name='six'>6 meses</button>
-                <button name='twelve'>1 año</button>
-                <button name='twenty_four'>2 años</button>
-                <button name='all'>Todo</button>
-            </form>
+    <table class='navbar' width='100%'>
+    <tr>
+        <td>
+            <table class='logo'>
+                <tr>
+                    <td>
+                        <h2>MotorLeads</h2>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class='user'>
+                <tr>
+                    <td style='padding-right: 10px;'><img id='userPhoto'></td>
+                    <td style='color: white;'><p><span id='userName'></span></p></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+        <div id='vehicle'>
+            <br>
+            <br>
+            
+            <table class='vehicle-table' width='30%'>
+                <tr>
+                <td class='imp' rowspan='2'>";
+                    if(isset($version['make'])) {
+                        $make_name = $version['make'];
+                        $image_path = "makes/".$make_name . ".png";
+                        echo "<img src='$image_path' id='makesLogo'>";
+                    }
+                echo "</td>";
+
+                echo"
+                    <td class='imp combined-cell' colspan='2'>
+                        <span id='makes'>".(isset($version['make']) ? $version['make']: '')."</span>
+                        <span class='cell-space'></span> 
+                        <span id='model'>". (isset($version['model']) ? $version['model'] : '')."</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='char' colspan='3'> 
+                        <span id='year'>".$historic[1]['year']."<span class='middot-space'></span>&middot;<span class='middot-space'></span><span id='color'>".$color."</span><span class='middot-space'></span>&middot;<span class='middot-space'></span><span id='version'>". (isset($version['vehicle_version']) ? $version['vehicle_version'] : '')."</span><span class='middot-space'></span>&middot;<span class='middot-space'></span><span id='mileage'>".$km."</span>
+                    </td>
+                </tr>
+            </table>    
         </div>
+        <div id='prices'>
+            <br>
+            <br>
+            <table class='prices-table' width='50%'>
+                <tr>
+                    <td>Valor a la <b>Venta</b><span class='dot1'></span></td>
+                    <td>Valor <b>Medio</b><span class='dot2'></span></td>
+                    <td>Valor a la <b>Compra</b><span class='dot3'></span></td>
+                </tr>
+                <tr>
+                    <span id='historyNumber'></span>
+                    <td style='height: 70px'><span class='imp' id='sales'>".$fsale."</span></td>
+                    <td style='height: 70px'><span class='imp' id='half'>".$fmedium."</span></td>
+                    <td style='height: 70px'><span class='imp' id='purch'>".$fpurch."</span></td>
+                </tr>
+                <tr>
+                    <td>Cambio de 1 Año</td>
+                    <td>Cambio de 1 Año</td>
+                    <td>Cambio de 1 Año</td>
+                </tr>
+                <tr>
+                    <td><span class='char' id='chSales'>".$vsales."</span></td>
+                    <td><span class='char' id='chHalf'>".$vhalf."</span></td>
+                    <td><span class='char' id='chPurch'>".$vpurch."</span></td>
+                </tr>
+                <tr>
+                <tr>
+                    <td colspan='3'> 
+                        <form method='post' action='' class='button-container'>
+                            <button class='button' name='three'>3M</button>
+                            <button class='button' name='six'>6M</button>
+                            <button class='button' name='twelve'>1A </button>
+                            <button class='button' name='twenty_four'>2A</button>
+                            <button class='button' name='all'>Máx</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
         <canvas id='mygra'></canvas>
+        <table>
+        <tr>
+                <td class='char'>Kilometraje esperado   </td>
+                <td class='char'>Kilometraje promedio   </td>
+                <td class='char'>Índice de facilidad comercial (IFC)    </td>
+            </tr>
+            <tr>
+                <td><span class='char' id='kmExpec'></span></td>
+                <td><span class='char' id='kmAvg'></span></td>
+                <td><span class='char' id='ifc'></span></td>
+            </tr>
+        </table>
 
         <script>
-            function DataG(months, labels, purchasePrices, salePrices, mediumPrices) {
-                const data = {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Valor a la Compra',
-                        backgroundColor: 'rgb(0, 128, 255)',
-                        borderColor: 'rgb(0, 128, 255)',
-                        data: purchasePrices,
-                    }, {
-                        label: 'Valor a la Venta',
-                        backgroundColor: 'rgb(2, 253, 147)',
-                        borderColor: 'rgb(2, 253, 147)',
-                        data: salePrices,
-                    }, {
-                        label: 'Valor Medio',
-                        backgroundColor: 'rgb(239, 111, 16)',
-                        borderColor: 'rgb(239, 111, 16)',
-                        data: mediumPrices,
-                    }]
-                };
+        function DataG(months, labels, purchasePrices, salePrices, mediumPrices) {
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Valor a la Compra',
+                    backgroundColor: 'blue',
+                    borderColor: 'blue',
+                    data: purchasePrices,
+                }, {
+                    label: 'Valor a la Venta',
+                    backgroundColor: 'green',
+                    borderColor: 'green',
+                    data: salePrices,
+                }, {
+                    label: 'Valor Medio',
+                    backgroundColor: 'orange',
+                    borderColor: 'orange',
+                    data: mediumPrices,
+                }]
+            };
+        
+            const config = {
+                type: 'line',
+                data: data,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    onClick: function(event, chartElement) {
+                        if (chartElement.length > 0) {
+                            const index = chartElement[0].index;
+                            const year = labels[index];
+                            console.log('Hovered over index:', index);
+                            console.log('Year:', year);
 
-                const config = {
-                    type: 'line',
-                    data: data,
-                };
-
-                if (window.myChart) {
-                    window.myChart.destroy();
+                            $.ajax({
+                                type: 'POST',
+                                url: 'grafica.php', 
+                                data: { hn: index }, 
+                                success: function(response) {
+                                    console.log('Respuesta del servidor:', response);
+                                    $('#sales').text(response.fsale);
+                                    $('#half').text(response.fmedium);
+                                    $('#purch').text(response.fpurch);
+                                }
+                            });
+                        }
+                    }
                 }
-                
-                var ctx = document.getElementById('mygra').getContext('2d');
-                window.myChart = new Chart(ctx, config);
+            };
+            if (window.myChart) {
+                window.myChart.destroy();
             }
+            
+            var ctx = document.getElementById('mygra').getContext('2d');
+            window.myChart = new Chart(ctx, config);
+        }
 
             window.onload = function() {
                 let labels = " . json_encode($labels) . ";
@@ -128,5 +285,3 @@
         
     </body>
     </html>";
-
-?>
