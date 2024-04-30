@@ -30,7 +30,7 @@ Paso2:
 7. Cuando finalice la instalación haz clic en "Finalizar".
 
 Paso 3:
-1. Puede acceder al codigo clonando el repositorio con el siguiente comand:
+1. Puede acceder al codigo clonando el repositorio con el siguiente comando:
 ```
 # Cambie directorio a htdocs
 cd C:\Program Files\xampp\htdocs 
@@ -43,6 +43,6 @@ rename MotorLeads MotorLeads-main
 ```
 
 2. Entre al panel de control de XAMPP y e inicie Apache y MySQL.
-4. Abra el siguiente link en el navegador que prefiera (localhost/MotorLeads-main/login.html).
+4. Abra el siguiente link en el navegador que prefiera [localhost/MotorLeads-main/login.html](localhost/MotorLeads-main/login.html).
 
 
