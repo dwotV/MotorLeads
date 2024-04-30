@@ -31,7 +31,7 @@ Paso2:
 7. Cuando finalice la instalación haz clic en "Finalizar"
 
 Paso 3:
-1. Busque la carpeta donde se encuentros los códigos de la página web
+1. Busque la carpeta donde se encuentros los códigos de la página web y cuando se descargue, se descargara en formato .zip, Tendra que descomprimirlo entrando al .zip y arrastrando la carpeta de adentro hacia el escritorio o directo a la ruta que se dice en el segundo punto de este paso
 2. Entra a la carpeta donde guardó XAMPP y busque la carpeta htdocs y guarde dentro la carpeta de los códigos
 3. Entra al XAMPP control panel y presione start en la opción Apache Y MySQL
 4. Busque en su navegador que prefiera (localhost/MotorLeads-main/login.html)
