@@ -1,0 +1,156 @@
+body {
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
+    background-size: 100% 150%;
+    background-color: white;
+}
+
+.logo {
+    padding-left: 20%;
+    color: white;
+}
+
+.navbar {
+    background-color: black;
+    width: 100%;
+    color: white;
+}
+
+.user {
+    padding-left: 60%;
+}
+
+.char{
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.imp{
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+.vehicle-table {
+    width: auto; 
+    margin-left: 150px;
+    border-collapse: collapse;
+    text-align: left; 
+}
+
+.vehicle-table td {
+    padding: 3px;
+    width: auto; 
+}
+
+.vehicle-table .imp {
+    font-weight: bold;
+}
+
+.vehicle-table .char {
+    font-style: italic;
+}
+
+#userPhoto {
+    width: 50px; 
+    height: auto; 
+    border-radius: 50%;
+}
+
+#makesLogo {
+    width: 100px; 
+    height: auto; 
+}
+
+.data {
+    width: auto; 
+    margin-left: 150px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.auto-width td{
+    width:auto;
+}
+
+.middot-space {
+    margin-right: 5px;
+}
+
+.cell-space {
+    margin-right: 5px;}
+
+
+.prices-table {
+
+    width: 50%;
+    margin-left: 150px;
+    border-collapse: collapse;
+}
+
+.prices-table td {
+    padding-right: 15px;
+}
+
+
+.dot1 {
+    margin-left: 5px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.dot2 {
+    margin-left: 5px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    border-radius: 50%;
+}
+
+.dot3 {
+    margin-left: 5px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.button {
+    display: inline-block;
+    padding: 6px 12px; 
+    margin: 5px;
+    background-color: transparent;
+    color: rgb(43, 37, 37); 
+    border: 2px solid #6f7377; 
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    border: 2px solid blue;
+    color:rgb(43, 37, 37);
+    background-color: rgb(190, 218, 236);
+}
+
+.button-container {
+    width: 50%;
+    margin-right: 40px;
+    border-collapse: collapse;
+    text-align: right;
+}
+
+#mygra{
+    max-width: 50%;
+    max-height: 50%;
+    display:block;
+    margin-left: 150px;
+    font-family: "Poppins";
+    }
