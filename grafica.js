@@ -53,8 +53,8 @@ window.onload = function() {
 };
 
 function prueba(){
-    document.getElementById('userName').textContent = 'Gabriel Munguía';
-    document.getElementById('userPhoto').src = 'users/gabriel.png';}
+    document.getElementById('userName').textContent = 'Daniel';
+    document.getElementById('userPhoto').src = 'imagenes/user.png';}
 
 function toggleLineVisibility(index) {
     const chart = window.myChart;
