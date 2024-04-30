@@ -154,3 +154,17 @@ body {
     margin-left: 150px;
     font-family: "Poppins";
     }
+
+input[type="button"] {
+    background: linear-gradient(#61a5c2, #012a4a);
+    color: white;
+    width: 25%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 20%;
+}
+
+input[type="button"]:hover {
+    background: linear-gradient(#012a4a, #61a5c2);
+}
