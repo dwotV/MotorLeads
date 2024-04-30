@@ -187,3 +187,10 @@ input[type="button"]:hover {
 .styled-button:hover {
     background: #190000;
 }
+
+.userimg {
+    padding: 10px;
+    padding-top: 17px;
+    width: 25px;
+    height: 25px;
+}
