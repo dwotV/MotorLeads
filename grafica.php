@@ -261,13 +261,6 @@ $kmAvg = number_format($version["km_average"]);
             </td>
         </tr>
         </table>
-        <br>
-        <a href = 'http://localhost/MotorLeads-main/form.html'>
-            <input align='right' type='button' value='+ Cotizar nuevo auto'>
-        </a>
-        <br>
-        <br>
-        <br>
 
         <script>
         function DataG(months, labels, purchasePrices, salePrices, mediumPrices) {
