@@ -126,7 +126,7 @@ $kmAvg = number_format($version["km_average"]);
         <td>
             <table class='user'>
                 <tr>
-                    <td style='padding-right: 10px;'><img id='userPhoto'></td>
+                    <td class='userimg'><img id='userPhoto'></td>
                     <td style='color: white;'><p><span id='userName'></span></p></td>
                 </tr>
             </table>
