@@ -84,6 +84,9 @@ $vsales = isset($version['sale_price_variation']) ? '$'.number_format($version['
 $vpurch = isset($version['purchase_price_variation']) ? '$'.number_format($version['purchase_price_variation']).'('.$version['purchase_price_percentage_variation'].'%)' : '';
 $vhalf = isset($version['medium_price_variation']) ? '$'.number_format($version['medium_price_variation']).'('.$version['medium_price_percentage_variation'].'%)' : '';
 
+$kmMin = number_format($version["km_minimum"]);
+$kmMax = number_format($version["km_maximum"]);
+$kmAvg = number_format($version["km_average"]);
 
     echo "
     <!DOCTYPE html>
@@ -102,8 +105,9 @@ $vhalf = isset($version['medium_price_variation']) ? '$'.number_format($version[
         <script src='grafica.js'></script>
         <style>
             canvas {
-                width: 400px; /* Ancho deseado */
-                height: 300px; /* Alto deseado */
+                max-width: 100%;
+                max-height: 30%;
+                margin-left: 25%;
             }
         </style>
     </head>
@@ -128,7 +132,7 @@ $vhalf = isset($version['medium_price_variation']) ? '$'.number_format($version[
             </table>
         </td>
     </tr>
-</table>
+    </table>
 
         <div id='vehicle'>
             <br>
@@ -156,7 +160,7 @@ $vhalf = isset($version['medium_price_variation']) ? '$'.number_format($version[
                         <span id='year'>".$historic[1]['year']."<span class='middot-space'></span>&middot;<span class='middot-space'></span><span id='color'>".$color."</span><span class='middot-space'></span>&middot;<span class='middot-space'></span><span id='version'>". (isset($version['vehicle_version']) ? $version['vehicle_version'] : '')."</span><span class='middot-space'></span>&middot;<span class='middot-space'></span><span id='mileage'>".$km."</span>
                     </td>
                 </tr>
-            </table>    
+            </table>  
         </div>
         <div id='prices'>
             <br>
@@ -184,8 +188,18 @@ $vhalf = isset($version['medium_price_variation']) ? '$'.number_format($version[
                     <td><span class='char' id='chPurch'>".$vpurch."</span></td>
                 </tr>
                 <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
                 <tr>
-                    <td colspan='3'> 
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td colspan='5' align='right'> 
                         <form method='post' action='' class='button-container'>
                             <button class='button' name='three'>3M</button>
                             <button class='button' name='six'>6M</button>
@@ -195,22 +209,58 @@ $vhalf = isset($version['medium_price_variation']) ? '$'.number_format($version[
                         </form>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='5' align='right'> 
+                        <form method='post' action='' class='button-container'>
+                            <button class='button' style='background-color: rgba(0, 128, 0, 0.8); color: white; border: none;' onclick='toggleLineVisibility(1)'>Venta</button>
+                            <button class='button' style='background-color: rgba(255, 165, 0, 0.8); color: white; border: none;' onclick='toggleLineVisibility(2)'>Medio</button>
+                            <button class='button' style='background-color: rgba(0, 0, 255, 0.8); color: white; border: none;' onclick='toggleLineVisibility(0)'>Compra</button>
+                            
+                        </form>
+                    </td>
+                </tr>
             </table>
         </div>
 
         <canvas id='mygra'></canvas>
-        <table>
+        <table class='prices-table' width='50%'>
         <tr>
-                <td class='char'>Kilometraje esperado   </td>
-                <td class='char'>Kilometraje promedio   </td>
-                <td class='char'>Índice de facilidad comercial (IFC)    </td>
-            </tr>
-            <tr>
-                <td><span class='char' id='kmExpec'></span></td>
-                <td><span class='char' id='kmAvg'></span></td>
-                <td><span class='char' id='ifc'></span></td>
-            </tr>
+            <td>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br>
+            </td>
+        </tr>
+        <tr>
+                <td>Kilometraje esperado</td>
+                <td>Kilometraje promedio</td>
+        </tr>
+        <tr>
+            <td><span class='char' id='kmExpec'>".$kmMin." - ".$kmMax." km</span></td>
+            <td><span class='char' id='kmAvg'>".$kmAvg." km</span></td>
+        </tr>
+        </tr>
+        <tr>
+            <td>
+                <br>
+            </td>
+        </tr>
         </table>
+        <br>
+        <a href = 'http://localhost/MotorLeads-main/form.html'>
+            <input align='right' type='button' value='+ Cotizar nuevo auto'>
+        </a>
+        <br>
+        <br>
+        <br>
 
         <script>
         function DataG(months, labels, purchasePrices, salePrices, mediumPrices) {
