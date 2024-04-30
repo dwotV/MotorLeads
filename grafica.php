@@ -223,12 +223,9 @@ $kmAvg = number_format($version["km_average"]);
                 </tr>
                 <tr>
                     <td colspan='5' align='right'> 
-                        <form method='post' action='' class='button-container'>
-                            <button class='button' style='background-color: rgba(0, 128, 0, 0.8); color: white; border: none;' onclick='toggleLineVisibility(1)'>Venta</button>
-                            <button class='button' style='background-color: rgba(255, 165, 0, 0.8); color: white; border: none;' onclick='toggleLineVisibility(2)'>Medio</button>
-                            <button class='button' style='background-color: rgba(0, 0, 255, 0.8); color: white; border: none;' onclick='toggleLineVisibility(0)'>Compra</button>
-                            
-                        </form>
+                        <button class='button' style='background-color: rgba(0, 128, 0, 0.8); color: white; border: none;' onclick='toggleLineVisibility(1)'>Venta</button>
+                        <button class='button' style='background-color: rgba(255, 165, 0, 0.8); color: white; border: none;' onclick='toggleLineVisibility(2)'>Medio</button>
+                        <button class='button' style='background-color: rgba(0, 0, 255, 0.8); color: white; border: none;' onclick='toggleLineVisibility(0)'>Compra</button>
                     </td>
                 </tr>
             </table>
