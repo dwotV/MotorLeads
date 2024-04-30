@@ -162,6 +162,13 @@ $kmAvg = number_format($version["km_average"]);
                 </tr>
             </table>  
         </div>
+
+        <div class='boton-container' style='text-align: right; margin-right: 150px;'>
+            <a href='http://localhost/MotorLeads-main/form.html' class='styled-button' >
+                + Cotizar Nuevo Auto
+            </a>
+        </div>
+        
         <div id='prices'>
             <br>
             <br>
