@@ -55,3 +55,14 @@ window.onload = function() {
 function prueba(){
     document.getElementById('userName').textContent = 'Gabriel Munguía';
     document.getElementById('userPhoto').src = 'users/gabriel.png';}
+
+function toggleLineVisibility(index) {
+    const chart = window.myChart;
+    const datasets = chart.data.datasets;
+
+    // Invierte la visibilidad del conjunto de datos específico según el índice
+    datasets[index].hidden = !datasets[index].hidden;
+
+    // Actualiza el gráfico
+    chart.update();
+}
